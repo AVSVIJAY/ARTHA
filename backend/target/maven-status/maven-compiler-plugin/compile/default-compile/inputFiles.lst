@@ -1,0 +1,7 @@
+/workspaces/ARTHA/backend/src/main/java/com/artha/expenses/DataInitializer.java
+/workspaces/ARTHA/backend/src/main/java/com/artha/expenses/Expense.java
+/workspaces/ARTHA/backend/src/main/java/com/artha/expenses/ExpenseController.java
+/workspaces/ARTHA/backend/src/main/java/com/artha/expenses/ExpenseRequest.java
+/workspaces/ARTHA/backend/src/main/java/com/artha/expenses/ExpenseService.java
+/workspaces/ARTHA/backend/src/main/java/com/artha/expenses/ExpenseTrackerApplication.java
+/workspaces/ARTHA/backend/src/main/java/com/artha/expenses/WebConfig.java
