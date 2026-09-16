@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 
-const categories = ['All', 'Home', 'Food', 'Transport', 'Wellness', 'Leisure']
-const emptyForm = { description: '', amount: '', category: 'Food', date: new Date().toISOString().slice(0, 10), note: '' }
+const categories = ['All', 'Home', 'Fashion', 'Utilities & Bills', 'Groceries', 'Food & Dining', 'Travel', 'Health & Medical', 'Family', 'Savings', 'Miscellaneous']
+const emptyForm = { description: '', amount: '', category: 'Food & Dining', date: new Date().toISOString().slice(0, 10), note: '' }
 
-const formatMoney = (amount) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount)
+const formatMoney = (amount) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 2 }).format(amount)
 const formatDate = (date) => new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' }).format(new Date(`${date}T00:00:00`))
 
 function App() {
