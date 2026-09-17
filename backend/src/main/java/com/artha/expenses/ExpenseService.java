@@ -2,7 +2,7 @@ package com.artha.expenses;
 
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
@@ -12,6 +12,7 @@ import java.util.concurrent.ConcurrentMap;
 @Service
 public class ExpenseService {
     private final ConcurrentMap<UUID, Expense> expenses = new ConcurrentHashMap<>();
+    private volatile BigDecimal income = BigDecimal.ZERO;
 
     public List<Expense> findAll(String category) {
         return expenses.values().stream()
@@ -30,9 +31,12 @@ public class ExpenseService {
         expenses.remove(id);
     }
 
-    public Expense seed(String description, java.math.BigDecimal amount, String category, LocalDate date, String note) {
-        Expense expense = new Expense(UUID.randomUUID(), description, amount, category, date, note);
-        expenses.put(expense.id(), expense);
-        return expense;
+    public BigDecimal income() {
+        return income;
+    }
+
+    public BigDecimal setIncome(IncomeRequest request) {
+        income = request.amount();
+        return income;
     }
 }

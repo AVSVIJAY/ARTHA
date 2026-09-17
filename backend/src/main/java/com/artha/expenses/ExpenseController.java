@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,6 +34,16 @@ public class ExpenseController {
     @ResponseStatus(HttpStatus.CREATED)
     public Expense create(@Valid @RequestBody ExpenseRequest request) {
         return service.create(request);
+    }
+
+    @GetMapping("/income")
+    public Income income() {
+        return new Income(service.income());
+    }
+
+    @PutMapping("/income")
+    public Income setIncome(@Valid @RequestBody IncomeRequest request) {
+        return new Income(service.setIncome(request));
     }
 
     @DeleteMapping("/{id}")
